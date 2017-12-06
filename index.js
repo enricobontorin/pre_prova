@@ -8,8 +8,7 @@ var Assignment = require('./assignment');
 const app = express();
 
 // instantiate mongoose
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://test:test@ds159344.mlab.com:59344/test_db96');
+mongoose.connect('mongodb://test:test@ds159344.mlab.com:59344/test_db96', {useMongoClient: true});//, {useMongoClient: true}
 const db = mongoose.connection;
 db.on('error', err => {
   console.error(`Error while connecting to DB: ${err.message}`);
@@ -72,7 +71,7 @@ router.route('/assignments/:assignment_id')
     // update the assignment with this id
     .put(function (req, res) {
         // use our bear model to find the bear we want
-        var query = {};
+        /*var query = {};
         query.Assignment_ID = req.params.assignment_id;
         Assignment.find(query, function (err, assign) {
             if (err) { res.send(err); }
@@ -85,7 +84,20 @@ router.route('/assignments/:assignment_id')
                 res.json({ message: 'Successfully modified'});
             });
 
+        });*/
+        console.log( req.params.assignment_id + " co: " + req.body.Assignment_Content)
+        var query = {Assignment_ID: req.params.assignment_id};
+        var update = {$set:{ Assignment_Content: req.body.Assignment_Content, Assignment_Type: req.body.Assignment_Type}}
+          , options = { multi: true };
+
+        Assignment.update(query, update, options, function (err, assign){
+            if (err) { res.send(err)}
+            
+            res.json({ message: 'Successfully modified'});
+            
+            
         });
+
     })
 
     // delete the assignment with this id
