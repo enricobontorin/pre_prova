@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var AssignmentSchema = new Schema({
     Student_ID: String,
-    Student_ID: String,
+    Assignment_ID: String,
     Assignment_Content: String,
     Assignment_Type: String
 });
