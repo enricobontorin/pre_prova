@@ -9,6 +9,7 @@ const app = express();
 
 // instantiate mongoose
 mongoose.connect('mongodb://test:test@ds159344.mlab.com:59344/test_db96', {useMongoClient: true});//, {useMongoClient: true}
+mongoose.connect('mongodb://admin:admin@ds117935.mlab.com:17935/unitnfinder', {useMongoClient: true});//, {useMongoClient: true}
 const db = mongoose.connection;
 db.on('error', err => {
   console.error(`Error while connecting to DB: ${err.message}`);
