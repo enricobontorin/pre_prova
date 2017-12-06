@@ -1,0 +1,23 @@
+{
+  "name": "esempioesame",
+  "version": "1.0.0",
+  "description": "API\r assignment\r - student id : string\r - assignment id : string\r - assignment content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ale96ametis/pre-esame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ale96ametis/pre-esame/issues"
+  },
+  "homepage": "https://github.com/ale96ametis/pre-esame#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6"
+  }
+}
