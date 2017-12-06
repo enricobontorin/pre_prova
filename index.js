@@ -77,10 +77,10 @@ router.route('/assignments/:assignment_id')
         Assignment.find(query, function (err, assign) {
             if (err) { res.send(err); }
             // update the assignment content
-            assign.Assignment_Content = req.body.Assignment_Content;
-            assign.Assignment_Type = req.body.Assignment_Type;
+            assign[0].Assignment_Content = req.body.Assignment_Content;
+            assign[0].Assignment_Type = req.body.Assignment_Type;
             // save the change
-            assign.save(function (err) {
+            assign[0].save(function (err) {
                 if (err) { res.send(err); }
                 res.json({ message: 'Successfully modified'});
             });
